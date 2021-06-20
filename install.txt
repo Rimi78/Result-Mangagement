@@ -1,0 +1,17 @@
+pip install django
+
+pip install PyMySQL
+pip install mysqlclient
+
+
+
+python manage.py migrate
+
+python manage.py collectstatic
+
+
+pip install django-phone-field
+
+pip install django-crispy-forms
+
+pip install pillow

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/showmarks.css' %} "> <!-- for django-->
+	<title>Add Lab Marks</title>
+    <style>
+        
+          .showmarks{
+              overflow: auto;
+             
+          }
+           h1{
+                  
+                  font-style: italic;
+                  text-align: center;
+                  color: darkblue;
+              }
+          table{
+              border-collapse: collapse;
+              width: 50%;
+              font-size: 15px;
+              font-style: italic;
+              text-align: center;
+          }
+          th{ 
+              background-color: dodgerblue;
+              color: white;
+          }
+          th,td{
+              border: 2px solid #ddd;
+              text-align: center;
+              padding: 10px;
+          }
+       </style>
+</head>
+<body>
+ <form action={% url 'showmarks' %} method="">
+
+	{% csrf_token %}
+     <div class="shomarks">
+        <h1>Marks sheet </h1>
+         <table>
+             <tbody>
+                 <tr>
+                     <th>Student ID</th>
+                     <th>Course code</th>
+                     <th>Section no</th>
+                     <th>Total marks</th>
+                     <th>Grade</th>
+                </tr>
+                {% for result in results %}
+                {% if result.total_marks <= 100 and result.total_marks >= 96%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>A+</td>
+                </tr>
+                {% elif  result.total_marks < 95 and result.total_marks >= 90%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>A</td>
+                </tr>
+                {% elif  result.total_marks < 89 and result.total_marks >= 87%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>A-</td>
+                </tr>
+                {% elif  result.total_marks < 86 and result.total_marks >= 83%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>B+</td>
+                </tr>
+                {% elif  result.total_marks < 82 and result.total_marks >= 80%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>B</td>
+                </tr>
+                {% elif  result.total_marks < 79 and result.total_marks >= 77%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>B-</td>
+                </tr>
+                {% elif  result.total_marks < 76 and result.total_marks >= 73%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>C+</td>
+                </tr>
+                {% elif  result.total_marks < 72 and result.total_marks >= 70%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>C</td>
+                </tr>
+                {% elif  result.total_marks < 69 and result.total_marks >= 67%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>C-</td>
+                </tr>
+                {% elif  result.total_marks < 66 and result.total_marks >= 63%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>D+</td>
+                </tr>
+                {% elif  result.total_marks < 62 and result.total_marks >= 60%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>D</td>
+                </tr>
+                {% elif  result.total_marks < 60 and result.total_marks >= 0%}
+                <tr>
+                     <td>{{ result.student_id }}</td>
+                     <td>{{ result.course_id }}</td>
+                     <td>{{ result.sec_no }}</td>
+                     <td>{{ result.total_marks}}</td>
+                     <td>F</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+          
+     </div>
+   </body>
+    
+
+	
+	<a href=" {% url 'dashboard' %}">Go back to dashboard</a><br>
+	
+	
+</html>

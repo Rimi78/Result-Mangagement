@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %} 
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_student.css' %} ">
+	<title>Add Lab Marks</title>
+</head>
+<body>
+ <form action={% url 'add_marks' %} method="POST">
+	{% csrf_token %}
+<div class="option">
+	<div class="option2">
+	Enter Student ID             : <input type='text' name='student_id' placeholder='Student ID'><br>
+    </div>
+    <div class="option2">
+	Enter Course Code            : <input type='text' name='course_id' placeholder='Course Code'><br>
+    </div>
+    <div class="option2">
+	Enter Section Number         : <input type='text' name='sec_no' placeholder='Section Number'><br>
+    </div>
+    <div class="option2">
+	Enter Mid1 Marks  : <input type='float' name='mid1' placeholder='mid1'><br>
+   </div>
+   <div class="option2">
+	Enter Mid2 Marks :  <input type='float' name='mid2' placeholder='mid2'><br>
+   </div>
+   <div class="option2">
+	Enter Final Marks :  <input type='float' name='final' placeholder='final'><br>
+   </div>
+   <div class="option2">
+	Enter Quiz1 Marks :  <input type='float' name='quiz1' placeholder='Quiz1'><br>
+   </div>
+   <div class="option2">
+	Enter Quiz2 Marks :  <input type='float' name='quiz2' placeholder='Quiz2'><br>
+   </div>
+   <div class="option2">
+	Enter Quiz3 Marks :  <input type='float' name='quiz3' placeholder='Quiz3'><br>
+   </div>
+   <div class="option2">
+	Enter Class Participation Marks :  <input type='float' name='class_participation' placeholder='class_participation'><br>
+    </div>
+    <div class="option2">
+	Enter Project Assisgnment Marks :  <input type='float' name='project_assisgnment' placeholder='project_assisgnment'><br>
+    </div>
+    <div class="option2">
+	Enter Lab Marks :  <input type='float' name='lab' placeholder='lab'><br>
+	</div>
+	<div class="option2">
+	<input type='submit' name='submit'><br>
+    </div>
+<!--</div>-->
+	<a href=" {% url 'dashboard' %}">Go back to dashboard</a><br>
+</div>
+	{% if messages%}
+	{% for message in messages %}
+	<div class="alert alert-danger" role="alert">
+		{{ message}} 
+	{% endfor %}
+	{% endif %}
+	
+</html>

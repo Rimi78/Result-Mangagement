@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<!--<link rel="stylesheet" type="text/css" href="add_studentenroll.css">--> <!-- for html-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_studentenroll.css' %} "> <!-- for django-->
+	<title>Add Student Enroll</title>
+</head>
+<body>
+ <form action={% url 'add_studentenroll' %} method="POST">
+	{% csrf_token %}
+	<div class="option">
+		<div class="option2">
+	Enter Student ID             : <input type='text' name='student_id' placeholder='Student ID'><br>
+     </div>
+     <div class="option2">
+	Enter Course Code            : <input type='text' name='course_id' placeholder='Course Code'><br>
+     </div>
+     <div class="option2">
+	Enter Section Number         : <input type='text' name='sec_no' placeholder='Section Number'><br>
+    </div>
+    <div class="option2">
+		<input type='submit' name='submit'><br>
+	</div>
+	<div class="option2">
+	<a href=" {% url 'dashboard' %}">Go back to dashboard</a><br>
+    </div>
+   </div>
+	{% if messages%}
+	{% for message in messages %}
+	<div class="alert alert-danger" role="alert">
+		{{ message}}
+	{% endfor %}
+	{% endif %}
+</html>

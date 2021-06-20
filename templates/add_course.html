@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<!--<link rel="stylesheet" type="text/css" href="add_course.css"> --> <!-- for html -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_course.css' %} "> <!-- for django-->
+	<title>Add Course</title>
+</head>
+<body>
+<form action={% url 'add_course' %} method="POST">
+	{% csrf_token %}
+<div class="option">
+	<div class="option2">
+	Enter Course code  : <input type='text' name='course_id' placeholder='Course code'><br>
+    </div>
+	<div class="option2">
+	Enter Course title : <input type='text' name='course_title' placeholder='Course title'><br>
+    </div>
+    <div class="option2">
+	Enter Section No   : <input type='text' name='sec_no' placeholder='Section no'><br>
+    </div>
+    <div class="option2">
+	<input type='submit' name='submit'><br>
+    </div>
+    <div class="option2">
+	<a href=" {% url 'dashboard' %}">Go back to dashboard</a><br>
+    </div>
+</div>
+</form>
+</body>
+</html>

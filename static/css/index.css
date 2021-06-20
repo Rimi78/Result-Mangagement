@@ -1,0 +1,19 @@
+body
+{
+	margin: 30px;
+	padding: 2px;
+	font-family: sans-serif;
+	background: url('../image/varsity.jpg') no-repeat;
+	background-size: cover;
+}
+
+.total h1
+{
+	text-align: left;
+
+}
+.option 
+{
+	font-size: 15px;
+	text-align: right;
+}

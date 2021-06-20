@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %} 
+<html>
+<head>
+	<!--<link rel="stylesheet" type="text/css" href="add_student.css">--> <!-- for html-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_student.css' %} ">
+	<title>Add Section</title>
+</head>
+<body>
+    <form action={% url 'add_student' %} method="POST">
+	{% csrf_token %}
+<div class="option">
+	<div class="option2">
+	Enter Student ID             : <input type='text' name='student_id' placeholder='Student ID'><br>
+	</div>
+	<div class="option2">
+	Enter Stdent Name            : <input type='text' name='student_name' placeholder='Student Name'><br>
+    </div>
+    <div class="option2">
+	Enter Student Email          : <input type='text' name='student_email' placeholder='Student Email'><br>
+    </div>
+    <div class="option2">
+	Enter Student phone Number   : <input type='text' name='student_number' placeholder='Student phone Number'><br>
+    </div>
+    <div class="option2">
+	<input type='submit' name='submit'><br>
+    </div>
+    <div class="option2">
+	<a href=" {% url 'dashboard' %}">Go back to dashboard</a><br>
+    </div>
+</div>
+	{% if messages%}
+	{% for message in messages %}
+	<div class="alert alert-danger" role="alert">
+		{{ message}}
+	{% endfor %}
+	{% endif %}
+</form>
+</body>
+</html>
